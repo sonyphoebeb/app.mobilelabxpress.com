@@ -10,6 +10,7 @@ import { Preview } from './pages/orders/preview/preview';
 import { Layout } from './layout/layout';
 
 export const routes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: Login },
 
     { path: 'layout', component: Layout, 
@@ -22,5 +23,6 @@ export const routes: Routes = [
         { path: 'insurance-information', component: InsuranceInformation },
         { path: 'preview', component: Preview }
       ]
-    }
+    },
+    { path: '**', redirectTo: '/login' }
 ];
