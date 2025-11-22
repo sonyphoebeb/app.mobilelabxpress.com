@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api-mlx-com-blue.vercel.app' // Production API URL
+  apiUrl: '/api' // Production: uses Vercel rewrites to proxy API calls (avoids CORS)
 };
 

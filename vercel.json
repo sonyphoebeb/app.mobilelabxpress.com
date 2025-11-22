@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://api-mlx-com-blue.vercel.app/:path*"
+    }
+  ]
+}
+
