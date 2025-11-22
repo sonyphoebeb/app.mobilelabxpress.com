@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Physician {
   Npi: number | null;
@@ -20,8 +21,8 @@ export interface Physician {
   providedIn: 'root'
 })
 export class PhysicianService {
-  private apiUrl = '/api/physicians/createPhysician';
-  private apiBaseUrl = '/api/physicians';
+  private apiUrl = `${environment.apiUrl}/physicians/createPhysician`;
+  private apiBaseUrl = `${environment.apiUrl}/physicians`;
 
   constructor(private http: HttpClient) {}
 
@@ -42,7 +43,7 @@ export class PhysicianService {
 
   // Get physician by ID
   getPhysicianById(id: number): Observable<Physician> {
-    return this.http.get<Physician>(`/api/physicians/${id}`);
+    return this.http.get<Physician>(`${this.apiBaseUrl}/${id}`);
   }
 
   // Update physician
@@ -51,12 +52,12 @@ export class PhysicianService {
       'Content-Type': 'application/json'
     });
     
-    return this.http.put<any>(`/api/physicians/${id}`, physician, { headers });
+    return this.http.put<any>(`${this.apiBaseUrl}/${id}`, physician, { headers });
   }
 
   // Delete physician
   deletePhysician(id: number): Observable<any> {
-    return this.http.delete<any>(`/api/physicians/${id}`);
+    return this.http.delete<any>(`${this.apiBaseUrl}/${id}`);
   }
 
   // Validate physician data

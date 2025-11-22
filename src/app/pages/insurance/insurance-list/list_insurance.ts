@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 export interface Insurance {
  INSURANCE_GUID: string;
@@ -96,7 +97,7 @@ export class InsuranceListComponent implements OnInit, AfterViewInit {
    * Load insurance data from API with pagination, search, and sort via POST body.
    */
   loadInsuranceData(pageNumber: number, pageSize: number): void {
-    const url = `/api/insurance/getAllInsurances/${pageNumber}/${pageSize}`;
+    const url = `${environment.apiUrl}/insurance/getAllInsurances/${pageNumber}/${pageSize}`;
     const body = {
       Search: this.searchTerm,
       SortColumn: this.sortColumn,
@@ -155,7 +156,7 @@ export class InsuranceListComponent implements OnInit, AfterViewInit {
 
   onDelete(insurance: Insurance): void {
     if (confirm(`Are you sure you want to delete insurance for ${insurance.NAME}?`)) {
-      const deleteUrl = `/api/insurance//insuraneDeletedByGuid/${insurance.INSURANCE_GUID}`;
+      const deleteUrl = `${environment.apiUrl}/insurance//insuraneDeletedByGuid/${insurance.INSURANCE_GUID}`;
       this.http.get<any>(deleteUrl).subscribe({
         next: (res) => {
           // Remove from local data

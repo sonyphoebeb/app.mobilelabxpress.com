@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-add-insurance',
@@ -69,7 +70,7 @@ export class AddInsuranceComponent implements OnInit {
   }
 
   private getInsuranceByGuid(guid: string): void {
-    const url = `/api/insurance/getinsuranceByGuid/${guid}`;
+    const url = `${environment.apiUrl}/insurance/getinsuranceByGuid/${guid}`;
     this.http.get<any>(url).subscribe({
       next: res => {
         const item = Array.isArray(res?.result) ? res.result[0] : (res?.result || res);
@@ -99,7 +100,7 @@ export class AddInsuranceComponent implements OnInit {
 
   onSave(): void {
     if (this.insuranceForm.valid) {
-      const url = `/api/insurance/addInsuranceandUpdateByGuid`;
+      const url = `${environment.apiUrl}/insurance/addInsuranceandUpdateByGuid`;
       const body: any = { ...this.insuranceForm.value };
       // If editing, include the guid so backend updates instead of creating
       if (this.mode === 'edit' && this.insuranceGuid) {

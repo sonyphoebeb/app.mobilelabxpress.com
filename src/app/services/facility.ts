@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Facility {
   Name: string;
@@ -26,8 +27,8 @@ export interface Facility {
 })
 
 export class AddFacilityService {
-  private apiUrl = '/api/facilities/createFacility';
-  private apiBaseUrl = '/api/facilities';
+  private apiUrl = `${environment.apiUrl}/facilities/createFacility`;
+  private apiBaseUrl = `${environment.apiUrl}/facilities`;
 
   constructor(private http: HttpClient) {}
 
