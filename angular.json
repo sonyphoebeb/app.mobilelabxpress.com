@@ -61,7 +61,8 @@
               "buildTarget": "app.mobilelabxpress.com:build:production"
             },
             "development": {
-              "buildTarget": "app.mobilelabxpress.com:build:development"
+              "buildTarget": "app.mobilelabxpress.com:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

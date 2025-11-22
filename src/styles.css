@@ -7,105 +7,16 @@
 @tailwind utilities;
 
 /* Global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Poppins', 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
-  color: #0D382B;
-  line-height: 1.6;
 }
 
 /* Custom base styles using MLX brand colors */
-h1, h2, h3, h4, h5, h6 {
-  color: #0D382B;
-  font-weight: 600;
-}
-
-/* MLX Brand Variables */
-:root {
-  --mlx-primary: #0D382B;
-  --mlx-accent: #009829;
-  --mlx-contrast: #FFFFFF;
-  --mlx-neutral-dark: #7D968E;
-  --mlx-neutral-mid: #C0CECA;
-  --mlx-neutral-light: #D7E1DE;
-  --mlx-green-light: #2FAA51;
-  --mlx-green-soft: #8ECFA2;
-  --mlx-green-lighter: #BEE2CA;
-  --mlx-green-bg: #D5EBDE;
-}
-
-/* Buttons */
-button {
-  background-color: var(--mlx-accent);
-  color: var(--mlx-contrast);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
-
-button:hover {
-  background-color: var(--mlx-green-light);
-  transform: translateY(-2px);
-}
-
-/* Cards */
-.card {
-  background: var(--mlx-contrast);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(13, 56, 43, 0.1);
-  margin: 20px 0;
-  border: 1px solid var(--mlx-neutral-light);
-}
-
-.card h2 {
-  color: var(--mlx-primary);
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: var(--mlx-neutral-dark);
-}
-
-/* Forms */
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--mlx-neutral-mid);
-  border-radius: 6px;
-  margin-top: 6px;
-  font-size: 14px;
-  transition: border 0.2s ease-in-out;
-  font-family: 'Poppins', sans-serif;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--mlx-accent);
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 152, 41, 0.3);
-}
-
-/* Links */
-a {
-  color: var(--mlx-accent);
-  text-decoration: none;
-  transition: 0.2s ease-in;
-}
-
-a:hover {
-  color: var(--mlx-green-light);
-  text-decoration: underline;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    color: #0D382B;
+  }
 }
